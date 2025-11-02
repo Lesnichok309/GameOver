@@ -9,17 +9,9 @@ public class RotateToTargetScript : MonoBehaviour
     [SerializeField] bool _toMouse;
     [SerializeField] float difAngle;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {      
-        
-        Vector3 Direction =Vector3.zero;
+        Vector3 Direction = Vector3.zero;
         if (_toMouse)
         {
             Vector3 MousePos = Input.mousePosition;
@@ -30,7 +22,14 @@ public class RotateToTargetScript : MonoBehaviour
         else
         {
             if (Target != null)
+            {
                 Direction = Target.transform.position - transform.position;
+            }
+            else
+            {
+                Debug.LogError("Lose target", transform);
+                this.enabled = false;
+            }
         }
         float Angle = Vector2.SignedAngle(Vector2.right, Direction);
         transform.eulerAngles =new Vector3(0, 0, Angle+difAngle);

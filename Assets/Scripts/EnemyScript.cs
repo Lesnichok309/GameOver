@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+    public float Health { get; private set; } = 1;
     [SerializeField] float _speed;
     [SerializeField] int _score;
     public MainScript main;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Vector2.MoveTowards(transform.position, new Vector3(0, 0, 0), 1);
-    }
-
-    // Update is called once per frame
+    
     
     void Update()
     {
@@ -28,14 +23,11 @@ public class EnemyScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnDestroy()
-    {
-        //EventSystem.SendEnemyDie(_score);
-    }
 
     public void GetScore()
     {
         main.UpScore(_score);
     }
 
+    
 }

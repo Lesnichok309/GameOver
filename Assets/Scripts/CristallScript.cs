@@ -13,7 +13,7 @@ public class CristallScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector2.right * Time.deltaTime*_speed);
     }
@@ -26,5 +26,11 @@ public class CristallScript : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+
+        if (collision.TryGetComponent<IDamageble>(out IDamageble iDamage))
+        {
+            iDamage.TakeDamage(2);
+        }
+        
     }
 }
