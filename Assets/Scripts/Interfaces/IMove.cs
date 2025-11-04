@@ -1,6 +1,6 @@
-public interface IMove 
+using UnityEngine;
+public interface IMove
 {
     public void Move();
-
     public void RotateToTarget();
 }

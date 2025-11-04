@@ -2,10 +2,12 @@ using UnityEngine;
 
 public abstract class BaseEnemy : MonoBehaviour, IDamageble , IMove
 {
-   
+    [SerializeField] Transform target;
+    [SerializeField]protected float difAngle;
     [SerializeField]protected float Health ;
     [SerializeField]protected float MaxHealth;
-    [SerializeField]protected float Speed;
+    [SerializeField] protected float Speed;
+    [SerializeField]protected float dieScore;
     void Start()
     {
         if (MaxHealth <= 0)
@@ -21,7 +23,8 @@ public abstract class BaseEnemy : MonoBehaviour, IDamageble , IMove
         {
             Health -= damage;
             if (Health <= 0)
-                Destroy(gameObject);
+            Die();
+                
         }
     }
     public virtual void TakeHeal(float heal)
@@ -36,6 +39,14 @@ public abstract class BaseEnemy : MonoBehaviour, IDamageble , IMove
     {
         return Health;
     }
+    public virtual void Die()
+    {
+        
+    }
     public virtual void Move(){}
     public virtual void RotateToTarget() { }
+    public virtual void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 }

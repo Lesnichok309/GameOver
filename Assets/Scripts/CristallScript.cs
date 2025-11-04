@@ -22,7 +22,7 @@ public class CristallScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyScript>().GetScore();
+            //collision.GetComponent<EnemyScript>().GetScore();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

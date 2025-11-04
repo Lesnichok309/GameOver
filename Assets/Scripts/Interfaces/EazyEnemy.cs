@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class EazyEnemy : BaseEnemy
 {
-    public Transform target;
-    [SerializeField] float difAngle;
-
     void FixedUpdate()
     {
         RotateToTarget();
