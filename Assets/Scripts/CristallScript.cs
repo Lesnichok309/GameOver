@@ -20,17 +20,15 @@ public class CristallScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (tag != collision.gameObject.tag)
         {
-            //collision.GetComponent<EnemyScript>().GetScore();
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            if (collision.TryGetComponent<IDamageble>(out IDamageble iDamage))
+            {
+                Destroy(gameObject);
+                iDamage.TakeDamage(2);
+            }
         }
 
-        if (collision.TryGetComponent<IDamageble>(out IDamageble iDamage))
-        {
-            iDamage.TakeDamage(2);
-        }
-        
+
     }
 }

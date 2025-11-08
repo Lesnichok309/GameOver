@@ -5,7 +5,8 @@ using TMPro;
 
 public class UIScript : MonoBehaviour
 {
-    [SerializeField] IDamageble PlayerHp;
+    [SerializeField] GameObject Player;
+    private IDamageble PlayerHp;
     [SerializeField] TextMeshProUGUI _scoreText;
     [SerializeField] TextMeshProUGUI _livesText;
     [SerializeField] GameObject restarBut;
@@ -13,12 +14,15 @@ public class UIScript : MonoBehaviour
     void Start()
     {
         EventSystemScript.OnEnemyDie.AddListener(UpScore);
+        PlayerHp = Player.GetComponent<IDamageble>();
+        if (PlayerHp == null)
+        { Debug.LogError("Not found player HP"); }
     }
     void FixedUpdate()
     {
         if (PlayerHp != null)
         {
-            float lives = PlayerHp.GetHealth();
+            float lives = PlayerHp.Health;
             _livesText.text = "Lives: " + lives.ToString();
         }
         else

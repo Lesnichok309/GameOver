@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 761035434}
   - component: {fileID: 761035435}
   - component: {fileID: 761035436}
+  - component: {fileID: 761035437}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -651,15 +652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423d4d9f3b163064ebd6b46329dc2f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 8026078613636034256, guid: 7d85011b596af5845809251b2c9ed5e7, type: 3}
-  player: {fileID: 1243388242}
-  _pause: 2
-  restarBut: {fileID: 405202724}
-  Respawns:
-  - {fileID: 704538379}
-  - {fileID: 1400957124}
-  - {fileID: 1877642040}
-  - {fileID: 429110963}
 --- !u!114 &761035436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,9 +664,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1269bb9adf1e042a11d1c377ca080b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreText: {fileID: 0}
-  _livesText: {fileID: 0}
-  restarBut: {fileID: 0}
+  Player: {fileID: 1243388242}
+  _scoreText: {fileID: 489980172}
+  _livesText: {fileID: 964825776}
+  restarBut: {fileID: 405202724}
+--- !u!114 &761035437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761035433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec78a791ef6498940adc9c2bc45218e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemys:
+  - {fileID: 1110621844633776410, guid: 7d85011b596af5845809251b2c9ed5e7, type: 3}
+  Respawns:
+  - {fileID: 704538380}
+  - {fileID: 1400957125}
+  - {fileID: 1877642041}
+  - {fileID: 429110964}
+  - {fileID: 1621327406}
+  - {fileID: 1303375610}
+  - {fileID: 1627769552}
+  - {fileID: 1616033260}
+  player: {fileID: 1243388244}
+  _pause: 1
 --- !u!1 &964825774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,6 +1050,7 @@ GameObject:
   - component: {fileID: 1243388249}
   - component: {fileID: 1243388248}
   - component: {fileID: 1243388247}
+  - component: {fileID: 1243388250}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1187,6 +1206,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 8461038236266838738, guid: 574a4735c20ee374b9179b704603e458, type: 3}
   _reloadTime: 0.1
+--- !u!114 &1243388250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243388242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cc0b44f9803ee640901a4eb618f735c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 5
 --- !u!1 &1303375609
 GameObject:
   m_ObjectHideFlags: 0

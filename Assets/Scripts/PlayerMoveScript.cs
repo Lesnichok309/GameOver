@@ -9,8 +9,10 @@ public class PlayerMoveScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.Translate(Vector2.right * Time.deltaTime * _speed * Input.GetAxis("Horizontal"),Space.World);
-        transform.Translate(Vector2.up * Time.deltaTime * _speed * Input.GetAxis("Vertical"),Space.World);
+        transform.Translate(Vector2.right * Time.deltaTime * _speed * Input.GetAxis("Horizontal"), Space.World);
+        transform.Translate(Vector2.up * Time.deltaTime * _speed * Input.GetAxis("Vertical"), Space.World);
     }
+    
+
    
 }

@@ -404,9 +404,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   difAngle: 0
-  Health: 0
-  MaxHealth: 5
+  health: 0
+  maxHealth: 2
   Speed: 5
+  dieScore: 1
 --- !u!1 &8026078615022575152
 GameObject:
   m_ObjectHideFlags: 0
