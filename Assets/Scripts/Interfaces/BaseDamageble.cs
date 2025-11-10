@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class BaseDamageble : MonoBehaviour,IDamageble
+public class BaseDamageble : MonoBehaviour, IDamageble
 {
-    [SerializeField]protected float health ;
-    [SerializeField]protected float maxHealth;
+    [Header("Health")]
+    [SerializeField]protected int health ;
+    [SerializeField]protected int maxHealth;
     
-    public float MaxHealth
+    public int MaxHealth
     {
         get { return maxHealth; }
         set
@@ -14,7 +15,7 @@ public class BaseDamageble : MonoBehaviour,IDamageble
                 maxHealth = value;
         }
     }
-    public float Health { get { return health; } }
+    public int Health { get { return health; } }
     
     void Start()
     {
@@ -26,7 +27,7 @@ public class BaseDamageble : MonoBehaviour,IDamageble
         }
         health = maxHealth;
     }
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(int damage)
     {
         if (damage > 0)
         {
@@ -35,7 +36,7 @@ public class BaseDamageble : MonoBehaviour,IDamageble
             Die();
         }
     }
-    public virtual void TakeHeal(float heal)
+    public virtual void TakeHeal(int heal)
     {
         if (heal >= 0)
         {

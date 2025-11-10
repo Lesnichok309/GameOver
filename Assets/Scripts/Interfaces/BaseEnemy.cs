@@ -1,26 +1,44 @@
+using System;
 using UnityEngine;
 
-public abstract class BaseEnemy : BaseDamageble, IMove
+[Serializable]
+public class BaseEnemy : BaseDamageble, IMoveBot
 {
-    [SerializeField]protected Transform target;
-    [SerializeField]protected float difAngle;
-    [SerializeField]protected float Speed;
+
+    [Header("Move")]
+    [SerializeField] protected Transform moveTarget;
+    [SerializeField] protected float difAngle;
+    [SerializeField] protected float speed;
+    public Transform MoveTarget { set { moveTarget = value; } }
+    public float DifAngle { set { difAngle = value; } }
+    public float Speed { get { return speed; } set { speed = value; } }
+
+    [Header("Score")]
     [SerializeField] protected float dieScore;
-    
-    void Start()
+    void FixedUpdate()
     {
-        if (maxHealth <= 0)
-        {
-            maxHealth = 1;
-            Debug.LogError("Forgot to assign a MaxHealth value",transform);
-        }
-        health = maxHealth;
+        RotateToTarget();
+        Move();
     }
-   
-    public virtual void Move(){}
-    public virtual void RotateToTarget() { }
-    public virtual void SetTarget(Transform newTarget)
+    public virtual void Move()
     {
-        target = newTarget;
+        transform.Translate(Vector2.right * Time.deltaTime * Speed);
+    }
+
+    public virtual void RotateToTarget()
+    {
+        Vector2 direction = Vector2.zero;
+        if (moveTarget != null)
+        {
+            direction = moveTarget.position - transform.position;
+        }
+        else
+        {
+            Debug.LogError("Lose target", transform);
+            this.enabled = false;
+        }
+
+        float angle = Vector2.SignedAngle(Vector2.right, direction);
+        transform.eulerAngles = new Vector3(0, 0, angle + difAngle);
     }
 }

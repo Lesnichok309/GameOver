@@ -13,7 +13,7 @@ public class GeneratorEnemyScript : MonoBehaviour
     {
         for (int i = 0; i < Enemys.Length; i++)
         {
-            Enemys[i].SetTarget(player); 
+            Enemys[i].MoveTarget =player; 
         }
         
     }

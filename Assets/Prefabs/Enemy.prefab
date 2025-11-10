@@ -266,7 +266,8 @@ GameObject:
   - component: {fileID: 8026078613636034271}
   - component: {fileID: 8026078613636034269}
   - component: {fileID: 8026078613636034268}
-  - component: {fileID: 1110621844633776410}
+  - component: {fileID: -2808705515551757497}
+  - component: {fileID: 5636858636822748956}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -390,7 +391,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1110621844633776410
+--- !u!114 &-2808705515551757497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -399,15 +400,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026078613636034256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2006a7d29bf58e64193af74ce37fae15, type: 3}
+  m_Script: {fileID: 11500000, guid: eb8de69f9124fa64a9be5576f2645217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  difAngle: 0
+  myEnemyConstructor: {fileID: 11400000, guid: fbcf451b91a16374eba2012211170624, type: 2}
+--- !u!114 &5636858636822748956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026078613636034256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501bbcb61fafcec40bf8c6717a85b55d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 2
-  Speed: 5
-  dieScore: 1
+  maxHealth: 0
 --- !u!1 &8026078615022575152
 GameObject:
   m_ObjectHideFlags: 0
