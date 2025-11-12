@@ -267,7 +267,8 @@ GameObject:
   - component: {fileID: 8026078613636034269}
   - component: {fileID: 8026078613636034268}
   - component: {fileID: -2808705515551757497}
-  - component: {fileID: 5636858636822748956}
+  - component: {fileID: -3176997675271666264}
+  - component: {fileID: -7533810790255691001}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -404,7 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemyConstructor: {fileID: 11400000, guid: fbcf451b91a16374eba2012211170624, type: 2}
---- !u!114 &5636858636822748956
+--- !u!114 &-3176997675271666264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -418,6 +419,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 0
+--- !u!114 &-7533810790255691001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026078613636034256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a809b115d03074aaae3109490648c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveTarget: {fileID: 0}
+  difAngle: 0
+  speed: 0
+  dieScore: 0
 --- !u!1 &8026078615022575152
 GameObject:
   m_ObjectHideFlags: 0

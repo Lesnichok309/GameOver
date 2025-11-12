@@ -16,6 +16,7 @@ MonoBehaviour:
   BaseDamageble: 1
   MaxHealth: 10
   DieScore: 1
-  BaseMoveBot: 1
+  Move: 1
+  MoveType: 0
   Speed: 5
   DifAngle: 0

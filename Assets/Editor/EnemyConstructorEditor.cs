@@ -14,8 +14,8 @@ public class EnemyConstructorEditor : Editor
     //
 
     // Move
-    private SerializedProperty BaseMoveBot;
-
+    private SerializedProperty Move;
+    private SerializedProperty MoveType;
     private SerializedProperty Speed;
     private SerializedProperty DifAngle;
     //
@@ -25,7 +25,8 @@ public class EnemyConstructorEditor : Editor
         maxHealthProp = serializedObject.FindProperty("MaxHealth");
         DieScore = serializedObject.FindProperty("DieScore");
 
-        BaseMoveBot = serializedObject.FindProperty("BaseMoveBot");
+        Move = serializedObject.FindProperty("Move");
+        MoveType = serializedObject.FindProperty("MoveType");
         Speed = serializedObject.FindProperty("Speed");
         DifAngle= serializedObject.FindProperty("DifAngle");
     }
@@ -45,9 +46,10 @@ public class EnemyConstructorEditor : Editor
             EditorGUILayout.PropertyField(DieScore);
         }
 
-        EditorGUILayout.PropertyField(BaseMoveBot);
-        if (BaseMoveBot.boolValue)
+        EditorGUILayout.PropertyField(Move);
+        if (Move.boolValue)
         {
+            EditorGUILayout.PropertyField(MoveType);    
             EditorGUILayout.PropertyField(Speed);
             EditorGUILayout.PropertyField(DifAngle);
         }

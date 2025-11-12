@@ -1,61 +1,102 @@
+ #if UNITY_EDITOR
 using UnityEngine;
-#if UNITY_EDITOR
+using System.Collections.Generic;
+using System;
 using UnityEditor;
-#endif
 
 public class EnemyController : MonoBehaviour
 {
     public EnemyConstructor myEnemyConstructor;
 
+    private List<Type> MoveComponents = new List<Type>()
+    {
+        typeof(BaseMoveBot),
+        //typeof(EazyEnemy)
+    };
+
     public void AddEnemySkills()
     {
-        Debug.Log("Change");
-        #if UNITY_EDITOR
+        Debug.Log($"Add new enemy Skills");
         if (Application.isPlaying) return; // избегаем во время игры
 
         if (myEnemyConstructor == null)
         {
-            RemoveComponentIfExists<BaseDamageble>();
-            RemoveComponentIfExists<BaseMoveBot>();
+            RemoveComponentIfExists(typeof(BaseDamageble));
+            RemoveComponentIfExists(MoveComponents);
             return;
         }
 
-        // Предполагается, что EnemyConstructor имеет публичные bool поля Move и Damage
         if (myEnemyConstructor != null)
         {
             if (myEnemyConstructor.BaseDamageble)
-                AddComponentIfMissing<BaseDamageble>();
+                AddComponentIfMissing(typeof(BaseDamageble));
             else
-                RemoveComponentIfExists<BaseDamageble>();
+                RemoveComponentIfExists(typeof(BaseDamageble));
 
-            if (myEnemyConstructor.BaseMoveBot)
-                AddComponentIfMissing<BaseMoveBot>();
+            if (myEnemyConstructor.Move)
+            {
+                BotMoveType moveType = myEnemyConstructor.MoveType;
+                switch (moveType)
+                {
+                    case BotMoveType.BaseMoveBot:
+                        AddComponentFromList(typeof(BaseMoveBot), MoveComponents);
+
+                        break;
+
+                    case BotMoveType.EazyMoveBot:
+                        AddComponentFromList(typeof(EazyEnemy), MoveComponents);
+                        break;
+                }
+            }
             else
-                RemoveComponentIfExists<BaseMoveBot>();
+                RemoveComponentIfExists(MoveComponents);
         }
-        #endif
     }
 
-    void AddComponentIfMissing<T>() where T : Component
+    void AddComponentIfMissing(Type needType)
     {
-        if (GetComponent<T>() == null)
+        var comp = GetComponent(needType);
+        if (comp == null)
         {
-            #if UNITY_EDITOR
-            UnityEditor.Undo.AddComponent<T>(this.gameObject);
-            #endif
+            if (typeof(Component).IsAssignableFrom(needType))
+                UnityEditor.Undo.AddComponent(gameObject, needType);
+            else
+                 Debug.LogWarning($"Type {needType} cant be added."); 
         }
     }
 
-    void RemoveComponentIfExists<T>() where T : Component
+    void RemoveComponentIfExists(Type needType)
     {
-        var comp = GetComponent<T>();
+        var comp = GetComponent(needType);
         if (comp != null)
-        {
-            #if UNITY_EDITOR
             Undo.DestroyObjectImmediate(comp);
-            #endif
+        
+    }
+
+    void RemoveComponentIfExists(List<Type> typeList)
+    {
+        foreach (Type needType in typeList)
+        {
+            var comp = GetComponent(needType);
+            if (comp != null)
+                Undo.DestroyObjectImmediate(comp);
+        }
+    }
+
+    void AddComponentFromList(Type needType,List<Type> typeList)
+    {
+       
+        foreach (Type type in typeList)
+        {
+           
+            if (type == needType)
+            {
+                
+                AddComponentIfMissing(needType);
+            }
+            else
+                RemoveComponentIfExists(type);
         }
     }
 }
-
-
+#endif
