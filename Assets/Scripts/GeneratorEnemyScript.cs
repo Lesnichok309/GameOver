@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GeneratorEnemyScript : MonoBehaviour
 {
-    [SerializeField] BaseEnemy[] Enemys;
+    [SerializeField] GameObject[] Enemys;
     [SerializeField] Transform[] Respawns;
     [SerializeField] Transform player;
     private bool waveflag;
@@ -13,7 +13,7 @@ public class GeneratorEnemyScript : MonoBehaviour
     {
         for (int i = 0; i < Enemys.Length; i++)
         {
-            Enemys[i].MoveTarget = player; 
+            Enemys[i].GetComponent<IMoveBotStrategy>().MoveTarget = player; 
         }
         
     }

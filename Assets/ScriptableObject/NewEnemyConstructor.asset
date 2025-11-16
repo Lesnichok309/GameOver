@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6bead9a26bcff54680129e292802a07, type: 3}
-  m_Name: TestEnemy
+  m_Name: NewEnemyConstructor
   m_EditorClassIdentifier: 
-  EnemyName: TestEnemy
-  BotDamagable: 1
-  MaxHealth: 3
-  DieScore: 1
+  EnemyName: Enemy
+  BaseDamageble: 1
+  MaxHealth: 10
+  DieScore: 5
   Move: 1
   MoveType: 0
   Speed: 5
-  DifAngle: 0
+  DifAngle: 6

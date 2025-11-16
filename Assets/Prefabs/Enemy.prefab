@@ -267,8 +267,9 @@ GameObject:
   - component: {fileID: 8026078613636034269}
   - component: {fileID: 8026078613636034268}
   - component: {fileID: -2808705515551757497}
-  - component: {fileID: -3176997675271666264}
-  - component: {fileID: -7533810790255691001}
+  - component: {fileID: -7315258736845972694}
+  - component: {fileID: 925536464219082067}
+  - component: {fileID: -4071340216636104402}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -355,7 +356,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -405,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemyConstructor: {fileID: 11400000, guid: fbcf451b91a16374eba2012211170624, type: 2}
---- !u!114 &-3176997675271666264
+--- !u!114 &-7315258736845972694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,12 +415,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026078613636034256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501bbcb61fafcec40bf8c6717a85b55d, type: 3}
+  m_Script: {fileID: 11500000, guid: 112234a35b7add94cac2bbcda203639c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 0
---- !u!114 &-7533810790255691001
+  maxHealth: 3
+  DieScore: 1
+--- !u!114 &925536464219082067
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -428,13 +430,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8026078613636034256}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a809b115d03074aaae3109490648c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f2882c5a88141a4e80fec9cd4abb5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveTarget: {fileID: 0}
   difAngle: 0
-  speed: 0
-  dieScore: 0
+  speed: 5
+--- !u!114 &-4071340216636104402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8026078613636034256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b96723da00f794e883a6774a5a9e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 8461038236266838738, guid: 574a4735c20ee374b9179b704603e458, type: 3}
+  shootDelay: 0.5
+  clip: 1
+  reloadTime: 0
+  damage: 1
 --- !u!1 &8026078615022575152
 GameObject:
   m_ObjectHideFlags: 0

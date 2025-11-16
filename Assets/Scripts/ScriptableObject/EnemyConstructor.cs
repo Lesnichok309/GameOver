@@ -3,7 +3,7 @@ using UnityEngine;
 
 public enum BotMoveType
 {
-    BaseMoveBot,EazyMoveBot
+    BaseMoveBot,CircleMoveBot
 }
 
 [CreateAssetMenu(fileName = "NewEnemyConstructor", menuName = "EnemyConstructor")]
@@ -12,7 +12,7 @@ public class EnemyConstructor : ScriptableObject
     public string EnemyName = "Enemy";
 
     [Header("Health")]
-    public bool BaseDamageble = true;
+    public bool BotDamagable = true;
     
     public int MaxHealth = 10;
     public int DieScore = 1;

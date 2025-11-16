@@ -1,20 +1,12 @@
 using UnityEngine;
 
-public class BaseDamageble : MonoBehaviour, IDamageble
+public class BaseDamageble : MonoBehaviour, IDamagebleStrategy
 {
     [Header("Health")]
     [SerializeField]protected int health ;
     [SerializeField]protected int maxHealth;
     
-    public int MaxHealth
-    {
-        get { return maxHealth; }
-        set
-        {
-            if (value > 0)
-                maxHealth = value;
-        }
-    }
+    public int MaxHealth { get { return maxHealth;} set{ if (value > 0) maxHealth = value;}}
     public int Health { get { return health; } }
     
     void Start()
@@ -54,4 +46,8 @@ public class BaseDamageble : MonoBehaviour, IDamageble
         Destroy(gameObject);
     }
    
+    public virtual void NewInit(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+    }
 }

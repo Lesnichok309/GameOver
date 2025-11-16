@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyConstructorEditor : Editor
 {
     // Health
-    private SerializedProperty BaseDamageble;
+    private SerializedProperty BotDamagable;
 
     private SerializedProperty maxHealthProp;
     private SerializedProperty HealthProp;
@@ -21,7 +21,7 @@ public class EnemyConstructorEditor : Editor
     //
     public void OnEnable()
     {
-        BaseDamageble = serializedObject.FindProperty("BaseDamageble");
+        BotDamagable = serializedObject.FindProperty("BotDamagable");
         maxHealthProp = serializedObject.FindProperty("MaxHealth");
         DieScore = serializedObject.FindProperty("DieScore");
 
@@ -39,8 +39,8 @@ public class EnemyConstructorEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("EnemyName"));
         
         // При значении true показываем поле, при false — скрываем
-        EditorGUILayout.PropertyField(BaseDamageble);
-        if (BaseDamageble.boolValue)
+        EditorGUILayout.PropertyField(BotDamagable);
+        if (BotDamagable.boolValue)
         {
             EditorGUILayout.PropertyField(maxHealthProp);
             EditorGUILayout.PropertyField(DieScore);

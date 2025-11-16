@@ -6,7 +6,7 @@ using TMPro;
 public class UIScript : MonoBehaviour
 {
     [SerializeField] GameObject Player;
-    private IDamageble PlayerHp;
+    private IDamagebleStrategy PlayerHp;
     [SerializeField] TextMeshProUGUI _scoreText;
     [SerializeField] TextMeshProUGUI _livesText;
     [SerializeField] GameObject restarBut;
@@ -14,7 +14,7 @@ public class UIScript : MonoBehaviour
     void Start()
     {
         EventSystemScript.OnEnemyDie.AddListener(UpScore);
-        PlayerHp = Player.GetComponent<IDamageble>();
+        PlayerHp = Player.GetComponent<IDamagebleStrategy>();
         if (PlayerHp == null)
         { Debug.LogError("Not found player HP"); }
     }

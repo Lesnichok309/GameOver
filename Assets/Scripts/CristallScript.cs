@@ -6,6 +6,7 @@ public class CristallScript : MonoBehaviour
 {
     [SerializeField] float _speed;
     [SerializeField] float _dieTime;
+    [SerializeField] int damage;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +23,16 @@ public class CristallScript : MonoBehaviour
     {
         if (tag != collision.gameObject.tag)
         {
-            if (collision.TryGetComponent<IDamageble>(out IDamageble iDamage))
+            if (collision.TryGetComponent<IDamagebleStrategy>(out IDamagebleStrategy iDamage))
             {
                 Destroy(gameObject);
-                iDamage.TakeDamage(2);
+                iDamage.TakeDamage(damage);
             }
         }
+    }
 
-
+    public void SetDamage(int newDamage)
+    {
+        damage = newDamage;
     }
 }

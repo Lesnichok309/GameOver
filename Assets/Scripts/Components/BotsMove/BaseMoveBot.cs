@@ -1,10 +1,7 @@
-using System;
 using UnityEngine;
 
-[Serializable]
-public class BaseEnemy : BaseDamageble, IMoveBot
-{
-
+public class BaseMoveBot : MonoBehaviour , IMoveBotStrategy
+{   
     [Header("Move")]
     [SerializeField] protected Transform moveTarget;
     [SerializeField] protected float difAngle;
@@ -13,8 +10,6 @@ public class BaseEnemy : BaseDamageble, IMoveBot
     public float DifAngle { set { difAngle = value; } }
     public float Speed { get { return speed; } set { speed = value; } }
 
-    [Header("Score")]
-    [SerializeField] protected float dieScore;
     void FixedUpdate()
     {
         RotateToTarget();

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8461038236266839342}
   m_Layer: 0
   m_Name: Cristall
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 10
   _dieTime: 2
+  damage: 1
 --- !u!58 &8461038236266839342
 CircleCollider2D:
   m_ObjectHideFlags: 0
